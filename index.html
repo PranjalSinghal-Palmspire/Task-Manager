@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager with Weekly Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="panel">
+      <h1>Task Manager</h1>
+      <p class="subtext">Track tasks, billable work, and generate your weekly report.</p>
+
+      <form id="task-form" class="task-form">
+        <div class="grid">
+          <label>
+            Task
+            <input id="title" type="text" required placeholder="e.g. Build login page" />
+          </label>
+
+          <label>
+            Date
+            <input id="date" type="date" required />
+          </label>
+
+          <label>
+            Start Date
+            <input id="start-date" type="date" required />
+          </label>
+
+          <label>
+            End Date
+            <input id="end-date" type="date" required />
+          </label>
+
+          <label>
+            Hours
+            <input id="hours" type="number" min="0" step="0.25" required placeholder="e.g. 2.5" />
+          </label>
+
+          <label>
+            Estimation Date
+            <input id="estimation-date" type="date" required />
+          </label>
+
+          <label>
+            Estimation Hours
+            <input id="estimation-hours" type="number" min="0" step="0.25" required placeholder="e.g. 3" />
+          </label>
+
+          <label>
+            Billable
+            <select id="billable">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Notes
+          <textarea id="notes" rows="3" placeholder="Optional details"></textarea>
+        </label>
+
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Your Tasks</h2>
+        <button id="clear-all" class="ghost">Clear All</button>
+      </div>
+      <ul id="task-list" class="task-list"></ul>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Weekly Report</h2>
+        <div class="header-actions">
+          <button id="generate-report" class="ghost">Generate This Week</button>
+          <button id="export-report" class="ghost">Export Weekly CSV</button>
+        </div>
+      </div>
+      <div id="report" class="report"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
