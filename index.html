@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Task Manager with Weekly Report</title>
+  <title>Task Manager with Weekly & Monthly Report</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,13 +13,18 @@
   <main class="container">
     <section class="panel">
       <h1>Task Manager</h1>
-      <p class="subtext">Track tasks, billable work, and generate your weekly report.</p>
+      <p class="subtext">Track tasks, billable work, and generate weekly/monthly reports.</p>
 
       <form id="task-form" class="task-form">
         <div class="grid">
           <label>
             Task
             <input id="title" type="text" required placeholder="e.g. Build login page" />
+          </label>
+
+          <label>
+            Client
+            <input id="client" type="text" placeholder="e.g. Acme Corp" />
           </label>
 
           <label>
@@ -72,7 +77,39 @@
 
     <section class="panel">
       <div class="panel-header">
-        <h2>Your Tasks</h2>
+        <h2>Daily Work Timer</h2>
+      </div>
+      <div class="grid">
+        <label>
+          Task Name
+          <input id="timer-task-name" type="text" placeholder="e.g. API integration" />
+        </label>
+        <label>
+          Client
+          <input id="timer-client" type="text" placeholder="e.g. Acme Corp" />
+        </label>
+        <label>
+          Billable
+          <select id="timer-billable">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+      </div>
+      <div class="timer-display">
+        <strong id="timer-elapsed">00:00:00</strong>
+        <span id="timer-started-at" class="muted">Not started</span>
+      </div>
+      <div class="header-actions">
+        <button id="start-timer" type="button">Start Timer</button>
+        <button id="stop-timer" type="button" class="ghost">Stop Timer</button>
+        <button id="reset-timer" type="button" class="ghost">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2 id="tasks-heading">Your Tasks</h2>
         <button id="clear-all" class="ghost">Clear All</button>
       </div>
       <ul id="task-list" class="task-list"></ul>
@@ -87,6 +124,16 @@
         </div>
       </div>
       <div id="report" class="report"></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Monthly Tab</h2>
+        <button id="export-monthly-report" class="ghost">Export Monthly CSV</button>
+      </div>
+      <div id="month-tabs" class="month-tabs"></div>
+      <div id="monthly-report" class="report"></div>
+      <ul id="monthly-task-list" class="task-list"></ul>
     </section>
   </main>
 

@@ -60,6 +60,22 @@ h1, h2 {
   flex-wrap: wrap;
 }
 
+.timer-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.75rem 0;
+  padding: 0.65rem 0.75rem;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: #f8fcf9;
+}
+
+.timer-display strong {
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+}
+
 .task-form {
   display: grid;
   gap: 0.75rem;
@@ -111,6 +127,31 @@ button.ghost {
 button.ghost:hover {
   border-color: var(--accent-2);
   color: var(--accent-2);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.month-tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.month-tab {
+  background: #f8fcf9;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.45rem 0.55rem;
+  border-radius: 9px;
+}
+
+.month-tab.active {
+  background: #dcfce7;
+  border-color: #86efac;
 }
 
 .task-list {
@@ -178,6 +219,7 @@ button.ghost:hover {
   display: grid;
   gap: 0.5rem;
   color: var(--ink);
+  margin-bottom: 0.75rem;
 }
 
 .report-grid {
